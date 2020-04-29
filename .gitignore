@@ -1,0 +1,42 @@
+# Eclipse
+.classpath
+.project
+.settings/
+history/
+
+
+# Intellij
+.idea/
+.gradle/
+.scannerwork/
+*.iml
+*.iws
+*.editorconfig
+*.DS_STORE
+*.DS_Store
+bin/
+.vscode/
+
+# Gradle
+log/
+gradle/
+target/
+hooks/pre-push
+
+# Java
+build/
+out/
+*.class
+*.war
+*.ear
+
+# Log file
+*.log
+testCase
+test-output
+tokens/StoredCredential
+
+# JMX Log file
+results
+*.jtl
+reports/*/**
