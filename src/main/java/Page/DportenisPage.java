@@ -3,8 +3,12 @@ package Page;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.pages.PageObject;
+import org.junit.rules.Timeout;
+import org.omg.CORBA.TIMEOUT;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
+
+import java.sql.Timestamp;
 
 
 @DefaultUrl(" https://www.dportenis.mx/")
@@ -31,7 +35,7 @@ public class DportenisPage extends PageObject{
     @FindBy(xpath = ".//*[@class=\"departmentButton\"]/span[.=\"Ofertas\"]")
     WebElementFacade offers;
 
-    @FindBy(xpath = ".//div[@class=\"image\"][1]")
+    @FindBy(xpath = ".//div[@class=\"image\"]")
     WebElementFacade product;
 
     @FindBy(xpath = ".//div[@id=\"productPageAdd2Cart\"]")
@@ -82,7 +86,6 @@ public class DportenisPage extends PageObject{
 
     public void selectProduct(){
         offers.waitUntilClickable().click();
-        product.waitUntilClickable().getText();
         product.waitUntilClickable().click();
     }
 
@@ -95,11 +98,13 @@ public class DportenisPage extends PageObject{
     public void addTocart(){
         showSizes.waitUntilClickable().click();
         size.waitUntilClickable().click();
+        Timeout.seconds(3);
         addTocart.waitUntilClickable().click();
     }
 
     public String verifyProduct(){
         shoppingCart.click();
+        Timeout.seconds(10);
         if(closeButton == null){
             return null;
         }

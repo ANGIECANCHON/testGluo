@@ -5,6 +5,7 @@ import cucumber.api.java.en.Then;
 import net.thucydides.core.annotations.Steps;
 import Step.DportenisStep;
 import org.junit.Assert;
+import org.junit.rules.Timeout;
 
 public class DportenisDefinition {
     @Steps
@@ -36,6 +37,10 @@ public class DportenisDefinition {
 
     @Given("I choose one product to add to my cart with the size")
     public void addToCart() {
+        dportenisStep.selectProductStep();
+        dportenisStep.addToCart();
+        dportenisStep.selectProductStep();
+        dportenisStep.addToCart();
         dportenisStep.selectProductStep();
         dportenisStep.addToCart();
     }
